@@ -1,11 +1,11 @@
 package gui;
 
-
-
-
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class Board extends JPanel{
@@ -122,5 +122,71 @@ public class Board extends JPanel{
         paddle.moveRight();
         repaint();
     }
+
+    public void moveBall() throws InterruptedException {
+
+        if (ball.getY() > BOARD_HEIGHT) {
+            // the ball died
+            // pause time thread.sleep not working
+            if (livesLeft == 0) {
+                int playAgain = JOptionPane.showConfirmDialog(null,
+                        "Game over! Would you like to play again?",
+                        "Game Over", JOptionPane.YES_NO_OPTION,
+                        JOptionPane.INFORMATION_MESSAGE, new ImageIcon(
+                                getClass().getResource("/gameOver.jpg")));
+                if (playAgain == 0) {
+                    frame.restart();
+                } else {
+                    frame.dispose();
+                    System.exit(0);
+                }
+            } else {
+                // send in new ball , remove this ball
+                livesLeft--;
+                frame.setLivesText(livesLeft);
+                ball = new Ball(paddle.getX(),
+                        (paddle.getY() - Paddle.PADDLE_HEIGHT) - 10);
+            }
+        } else {
+            Piece hitBrick = ball.move(paddle.getX(), paddle.getY(), bricks);
+            if (hitBrick != null) {
+                Color brickColor = hitBrick.getColor();
+                if (brickColor == Color.BLUE) {
+                    score += 100;
+                } else if (brickColor == Color.GREEN) {
+                    score += 200;
+                } else if (brickColor == Color.YELLOW) {
+                    score += 300;
+                } else if (brickColor == Color.ORANGE) {
+                    score += 400;
+                } else {
+                    score += 500;
+                }
+                frame.setScoreText();
+                bricks.remove(hitBrick);
+            }
+        }
+    }
+
+    public void checkWinner() {
+        if (bricks.size() == 0) {
+            int playAgain = JOptionPane.showConfirmDialog(null,
+                    "You win! Would you like to play again?",
+                    "Congratulations!!", JOptionPane.YES_NO_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass()
+                            .getResource("/winner.jpg")));
+            if (playAgain == 0) {
+                frame.restart();
+            } else {
+                frame.dispose();
+                System.exit(0);
+            }
+        }
+    }
+
+    public int getScore() {
+        return score;
+    }
+
 
 }
