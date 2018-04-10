@@ -118,4 +118,99 @@ public class Ball {
             switchRightandLeft();
         }
     }
+
+    private boolean rightSide(int x) {
+        return xPos == (x + Paddle.PADDLE_LENGTH);
+    }
+
+    private boolean leftSide(int x) {
+        return (((xPos + BALL_DIAMETER) >= x) && (xPos < x));
+    }
+
+    private void checkBrickCollision(Piece brick) {
+        checkBrickRight(brick);
+        checkBrickLeft(brick);
+        checkBrickTopBottom(brick);
+
+    }
+
+    private void checkBrickRight(Piece brick) {
+        int brickY = brick.getY();
+        if ((xPos == (brick.getX() + Piece.BRICK_LENGTH))
+                && (yPos <= (brickY + Piece.BRICK_WIDTH)) && (yPos >= brickY)) {
+            switchRightandLeft();
+            brickHit = true;
+        }
+    }
+
+    private void checkBrickLeft(Piece brick) {
+        int brickY = brick.getY();
+
+        if ((xPos + BALL_DIAMETER >= brick.getX()) && xPos < brick.getX()
+                && (yPos + BALL_DIAMETER <= (brickY + Piece.BRICK_WIDTH))
+                && (yPos + BALL_DIAMETER >= brickY)) {
+            switchRightandLeft();
+            brickHit = true;
+        }
+    }
+
+    private void checkBrickTopBottom(Piece brick) {
+        int brickX = brick.getX();
+        if ((brickTop(brick) || brickBottom(brick))
+                && (xPos <= brickX + Piece.BRICK_LENGTH)) {
+            if (moveLeft) {
+                if (xPos + BALL_DIAMETER >= brickX) {
+                    switchUpandDown();
+                    brickHit = true;
+                }
+            } else {
+                if ((xPos >= brickX)) {
+                    switchUpandDown();
+                    brickHit = true;
+                }
+            }
+        }
+
+    }
+
+    private boolean brickTop(Piece brick) {
+
+        return (yPos + BALL_DIAMETER > brick.getY() && yPos < brick.getY());
+    }
+
+    private boolean brickBottom(Piece brick) {
+        int bottom = brick.getY() + Piece.BRICK_WIDTH;
+        return ((yPos - BALL_DIAMETER / 2) < (bottom) && yPos > bottom);
+
+    }
+
+    private void switchRightandLeft() {
+        if (moveRight) {
+            moveRight = false;
+            moveLeft = true;
+        } else {
+            moveRight = true;
+            moveLeft = false;
+        }
+
+    }
+
+    private void switchUpandDown() {
+        if (moveUp) {
+            moveUp = false;
+            moveDown = true;
+        } else {
+            moveUp = true;
+            moveDown = false;
+        }
+
+    }
+
+    public int getX() {
+        return xPos;
+    }
+
+    public int getY() {
+        return yPos;
+    }
 }
