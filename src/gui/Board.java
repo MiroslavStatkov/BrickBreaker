@@ -22,7 +22,7 @@ public class Board extends JPanel{
 
     public Board(BrickBrackerGame frame) {
         this.setSize(BOARD_WIDTH, BOARD_HEIGHT);
-        this.setBackground(Color.black);
+        this.setBackground(new java.awt.Color(65, 10, 65));
         paddle = new Paddle();
         ball = new Ball(BOARD_WIDTH / 2,
                 (paddle.getY() - Paddle.PADDLE_HEIGHT) - 10);
@@ -133,7 +133,7 @@ public class Board extends JPanel{
                         "Game over! Would you like to play again?",
                         "Game Over", JOptionPane.YES_NO_OPTION,
                         JOptionPane.INFORMATION_MESSAGE, new ImageIcon(
-                                getClass().getResource("/gameOver.jpg")));
+                                getClass().getResource("/resources/gameOver.jpg")));
                 if (playAgain == 0) {
                     frame.restart();
                 } else {
@@ -174,7 +174,7 @@ public class Board extends JPanel{
                     "You win! Would you like to play again?",
                     "Congratulations!!", JOptionPane.YES_NO_OPTION,
                     JOptionPane.INFORMATION_MESSAGE, new ImageIcon(getClass()
-                            .getResource("/winner.jpg")));
+                            .getResource("/resources/cup.jpg")));
             if (playAgain == 0) {
                 frame.restart();
             } else {

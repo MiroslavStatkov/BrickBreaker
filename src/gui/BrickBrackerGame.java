@@ -50,7 +50,7 @@ public class BrickBrackerGame extends JFrame implements KeyListener{
                 music.start();
             }
         };
-        this.musicExecutor.scheduleAtFixedRate(playSound, 0, 22,
+        this.musicExecutor.scheduleAtFixedRate(playSound, 0, 30,
                 TimeUnit.SECONDS);
 
         play = new Runnable() {
@@ -101,9 +101,9 @@ public class BrickBrackerGame extends JFrame implements KeyListener{
         container.setFocusable(true);
         container.addKeyListener(this);
 
-        scorePanel.setBackground(Color.BLACK);
+        scorePanel.setBackground(new java.awt.Color(65, 10, 65));
         lives = new JLabel();
-        lives.setBackground(Color.BLACK);
+        lives.setBackground(new java.awt.Color(65, 10, 65));
         lives.setForeground(Color.WHITE);
         lives.setFont(new Font(lives.getFont().getName(), Font.PLAIN, 24));
         setLivesText(3);
