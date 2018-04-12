@@ -1,9 +1,9 @@
 package Start;
 
-import gui.BrickBrackerGame;
+import gui.BrickBreakerGame;
 
 public class Start {
     public static void main(String[] args) {
-        BrickBrackerGame bg = new BrickBrackerGame();
+        BrickBreakerGame bg = new BrickBreakerGame();
     }
 }
