@@ -1,9 +1,11 @@
 package game;
 
 import gui.Board;
+
 import java.util.ArrayList;
 
 public class Ball {
+    public static final int BALL_DIAMETER = 10;
     private int xPos;
     private int yPos;
     private boolean brickHit;
@@ -11,7 +13,6 @@ public class Ball {
     private boolean moveRight;
     private boolean moveUp;
     private boolean moveDown;
-    public static final int BALL_DIAMETER = 10;
 
     public Ball(int x, int y) {
         xPos = x;
@@ -23,7 +24,6 @@ public class Ball {
         brickHit = false;
     }
 
-    // returns brick that was hit or null if no brick hit
     public Piece move(int paddleX, int paddleY, ArrayList<Piece> bricks) {
         brickHit = false;
         Piece hitBrick = setMoveDirection(paddleX, paddleY, bricks);
@@ -44,9 +44,7 @@ public class Ball {
         return hitBrick;
     }
 
-    // returns brick that was hit or null if no brick hit
     private Piece setMoveDirection(int x, int y, ArrayList<Piece> bricks) {
-        // check if the ball should move up or down and then right or left
 
         checkHitWall();
         checkHitPaddle(x, y);
@@ -56,7 +54,6 @@ public class Ball {
                 return brick;
             }
         }
-        // no brick hit
         return null;
     }
 
@@ -93,17 +90,6 @@ public class Ball {
 
     private void checkTopPaddle(int x, int y) {
         if (yPos + BALL_DIAMETER == (y)) {
-            /*
-			 * if (xPos + BALL_DIAMETER == (x + Paddle.PADDLE_LENGTH)) {
-			 * System.out.println("right corner"); if (moveLeft) {
-			 * switchUpandDown(); switchRightandLeft(); } else {
-			 * switchUpandDown(); }
-			 *
-			 * } else if (xPos + BALL_DIAMETER == x) {
-			 * System.out.println("left corner"); if (moveRight) {
-			 * switchUpandDown(); switchRightandLeft(); } else {
-			 * switchUpandDown(); } } else
-			 */
             if (xPos < (x + Paddle.PADDLE_LENGTH) && xPos > x) {
                 switchUpandDown();
             }

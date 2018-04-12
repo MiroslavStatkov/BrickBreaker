@@ -6,13 +6,16 @@ import game.Piece;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class Board extends JPanel{
+public class Board extends JPanel {
 
     private static final long serialVersionUID = 1L;
     private Paddle paddle;
@@ -21,12 +24,12 @@ public class Board extends JPanel{
     public static final int BOARD_HEIGHT = 600;
     public static final int BOARD_WIDTH = 600;
     private int livesLeft;
-    private BrickBrackerGame frame;
+    private BrickBreakerGame frame;
     private int score;
+    private BufferedImage img;
 
-    public Board(BrickBrackerGame frame) {
+    public Board(BrickBreakerGame frame) {
         this.setSize(BOARD_WIDTH, BOARD_HEIGHT);
-        this.setBackground(new java.awt.Color(65, 10, 65));
         paddle = new Paddle();
         ball = new Ball(BOARD_WIDTH / 2,
                 (paddle.getY() - Paddle.PADDLE_HEIGHT) - 10);
@@ -98,10 +101,17 @@ public class Board extends JPanel{
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        try {
+            img = ImageIO.read(getClass().getResourceAsStream("/resources/wall1.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        g.drawImage(img, 0, 0, getWidth(), getHeight(), null);
         g.setColor(Color.BLUE);
         g.fillRect(paddle.getX(), paddle.getY(), Paddle.PADDLE_LENGTH,
                 Paddle.PADDLE_HEIGHT);
-        g.setColor(Color.white);
+        g.setColor(Color.cyan);
         g.fillOval(ball.getX(), ball.getY(), Ball.BALL_DIAMETER,
                 Ball.BALL_DIAMETER);
         // create loop to set up all pieces - make array of pieces
@@ -191,6 +201,5 @@ public class Board extends JPanel{
     public int getScore() {
         return score;
     }
-
 
 }
