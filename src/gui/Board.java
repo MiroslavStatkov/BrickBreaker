@@ -1,5 +1,9 @@
 package gui;
 
+import game.Ball;
+import game.Paddle;
+import game.Piece;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;

@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 
 public class BrickBrackerGame extends JFrame implements KeyListener{
 
+
     private static final long serialVersionUID = 1L;
     private JPanel scorePanel;
     private JLabel lives, score;
