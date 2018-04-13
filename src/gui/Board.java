@@ -18,11 +18,11 @@ import javax.swing.JPanel;
 public class Board extends JPanel {
 
     private static final long serialVersionUID = 1L;
+    public static final int BOARD_HEIGHT = 600;
+    public static final int BOARD_WIDTH = 600;
     private Paddle paddle;
     private Ball ball;
     private ArrayList<Piece> bricks;
-    public static final int BOARD_HEIGHT = 600;
-    public static final int BOARD_WIDTH = 600;
     private int livesLeft;
     private BrickBreakerGame frame;
     private int score;
@@ -140,8 +140,6 @@ public class Board extends JPanel {
     public void moveBall() throws InterruptedException {
 
         if (ball.getY() > BOARD_HEIGHT) {
-            // the ball died
-            // pause time thread.sleep not working
             if (livesLeft == 0) {
                 int playAgain = JOptionPane.showConfirmDialog(null,
                         "Game over! Would you like to play again?",
@@ -155,7 +153,6 @@ public class Board extends JPanel {
                     System.exit(0);
                 }
             } else {
-                // send in new ball , remove this ball
                 livesLeft--;
                 frame.setLivesText(livesLeft);
                 ball = new Ball(paddle.getX(),

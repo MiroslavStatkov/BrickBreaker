@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextArea;
 
-public class About extends JDialog {
+ public class About extends JDialog {
     private static final long serialVersionUID = 1L;
     private final JPanel contentPanel = new JPanel();
 
@@ -37,7 +37,7 @@ public class About extends JDialog {
         txtAbout.setFont(new Font("Verdana", Font.PLAIN, 17));
         txtAbout.setBackground(SystemColor.menu);
         txtAbout.setEditable(false);
-        contentPanel.add(txtAbout);
+       // contentPanel.add(txtAbout);
         txtAbout.setText("\nBrick Breaker - Copyright © 2018 GPL\n\n"
                 + "Authors: Miroslav Statkov & Nedyalko Georgiev\n\n"
                 + "Music: Cop\n\n"
