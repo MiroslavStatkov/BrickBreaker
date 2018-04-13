@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9903eeb2-f2b5-41b6-842d-77b66d42518f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BrickBreaker/game/Ball.class" afterPath="$PROJECT_DIR$/out/production/BrickBreaker/game/Ball.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BrickBreaker/game/Paddle.class" afterPath="$PROJECT_DIR$/out/production/BrickBreaker/game/Paddle.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BrickBreaker/game/Piece.class" afterPath="$PROJECT_DIR$/out/production/BrickBreaker/game/Piece.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BrickBreaker/gui/About.class" afterPath="$PROJECT_DIR$/out/production/BrickBreaker/gui/About.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BrickBreaker/gui/BrickBreakerGame$10.class" afterPath="$PROJECT_DIR$/out/production/BrickBreaker/gui/BrickBreakerGame$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/About.java" afterPath="$PROJECT_DIR$/src/gui/About.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Board.java" afterPath="$PROJECT_DIR$/src/gui/Board.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/BrickBreakerGame.java" afterPath="$PROJECT_DIR$/src/gui/BrickBreakerGame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,15 +54,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+            <state relative-caret-position="-923">
+              <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7765#7766#0" expanded="true" />
-                <element signature="e#7793#7794#0" expanded="true" />
+                <element signature="e#7697#7698#0" expanded="true" />
+                <element signature="e#7725#7726#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,10 +98,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Music.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Music.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/Music.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-15">
               <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
               <folding>
                 <element signature="e#356#357#0" expanded="true" />
@@ -470,8 +462,8 @@
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7765#7766#0" expanded="true" />
-            <element signature="e#7793#7794#0" expanded="true" />
+            <element signature="e#7697#7698#0" expanded="true" />
+            <element signature="e#7725#7726#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -611,18 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7765#7766#0" expanded="true" />
-            <element signature="e#7793#7794#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Background.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -648,11 +628,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Music.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-15">
           <caret line="0" column="12" lean-forward="true" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
           <folding>
             <element signature="e#356#357#0" expanded="true" />
             <element signature="e#383#384#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-923">
+          <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7697#7698#0" expanded="true" />
+            <element signature="e#7725#7726#0" expanded="true" />
           </folding>
         </state>
       </provider>

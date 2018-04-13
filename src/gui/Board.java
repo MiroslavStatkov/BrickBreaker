@@ -114,7 +114,6 @@ public class Board extends JPanel {
         g.setColor(Color.cyan);
         g.fillOval(ball.getX(), ball.getY(), Ball.BALL_DIAMETER,
                 Ball.BALL_DIAMETER);
-        // create loop to set up all pieces - make array of pieces
         for (int i = 0; i < bricks.size(); i++) {
             Piece brick = bricks.get(i);
             g.setColor(brick.getColor());
@@ -124,7 +123,6 @@ public class Board extends JPanel {
             g.drawRect(brick.getX(), brick.getY(), Piece.BRICK_LENGTH,
                     Piece.BRICK_WIDTH);
         }
-
     }
 
     public void movePaddleLeft() {
