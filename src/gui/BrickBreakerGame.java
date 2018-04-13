@@ -75,7 +75,7 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
             public void actionPerformed(ActionEvent e) {
                 int prompt = JOptionPane.showOptionDialog(BrickBreakerGame.this,
                         "Are you sure you want to exit?",
-                        "Wall Breaker", JOptionPane.YES_NO_OPTION,
+                        "Brick Breaker", JOptionPane.YES_NO_OPTION,
                         JOptionPane.QUESTION_MESSAGE, null, null, null);
                 if (prompt == JOptionPane.YES_OPTION) {
                     System.exit(0);
@@ -120,7 +120,7 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
             public void windowClosing(WindowEvent we) {
                 int prompt = JOptionPane.showOptionDialog(BrickBreakerGame.this,
                         "Are you sure you want to exit?",
-                        "Wall Breaker", JOptionPane.YES_NO_OPTION,
+                        "Brick Breaker", JOptionPane.YES_NO_OPTION,
                         JOptionPane.QUESTION_MESSAGE, null, null, null);
                 if (prompt == JOptionPane.YES_OPTION) {
                     System.exit(0);
