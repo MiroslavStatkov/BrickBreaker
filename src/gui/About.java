@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextArea;
 
-public class About extends JDialog {
+ public class About extends JDialog {
     private static final long serialVersionUID = 1L;
     private final JPanel contentPanel = new JPanel();
 

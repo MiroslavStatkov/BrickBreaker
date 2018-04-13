@@ -174,6 +174,7 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
         play = new Runnable() {
 
             public void run() {
+
                 while (true) {
                     try {
                         if (isPaused) {
@@ -190,10 +191,8 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
                     }
                 }
             }
-
         };
         new Thread(play).start();
-
     }
 
     private void movePaddle() {
