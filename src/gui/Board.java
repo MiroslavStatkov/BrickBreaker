@@ -20,6 +20,7 @@ public class Board extends JPanel {
     private static final long serialVersionUID = 1L;
     public static final int BOARD_HEIGHT = 600;
     public static final int BOARD_WIDTH = 600;
+    public static byte lives = 4;
     private Paddle paddle;
     private Ball ball;
     private ArrayList<Piece> bricks;
@@ -34,67 +35,28 @@ public class Board extends JPanel {
         ball = new Ball(BOARD_WIDTH / 2,
                 (paddle.getY() - Paddle.PADDLE_HEIGHT) - 10);
         bricks = new ArrayList<Piece>();
-        bricks.add(new Piece(0, 50, Color.RED));
-        bricks.add(new Piece(50, 50, Color.RED));
-        bricks.add(new Piece(100, 50, Color.RED));
-        bricks.add(new Piece(150, 50, Color.RED));
-        bricks.add(new Piece(200, 50, Color.RED));
-        bricks.add(new Piece(250, 50, Color.RED));
-        bricks.add(new Piece(300, 50, Color.RED));
-        bricks.add(new Piece(350, 50, Color.RED));
-        bricks.add(new Piece(400, 50, Color.RED));
-        bricks.add(new Piece(450, 50, Color.RED));
-        bricks.add(new Piece(500, 50, Color.RED));
-        bricks.add(new Piece(550, 50, Color.RED));
-        bricks.add(new Piece(0, 80, Color.ORANGE));
-        bricks.add(new Piece(50, 80, Color.ORANGE));
-        bricks.add(new Piece(100, 80, Color.ORANGE));
-        bricks.add(new Piece(150, 80, Color.ORANGE));
-        bricks.add(new Piece(200, 80, Color.ORANGE));
-        bricks.add(new Piece(250, 80, Color.ORANGE));
-        bricks.add(new Piece(300, 80, Color.ORANGE));
-        bricks.add(new Piece(350, 80, Color.ORANGE));
-        bricks.add(new Piece(400, 80, Color.ORANGE));
-        bricks.add(new Piece(450, 80, Color.ORANGE));
-        bricks.add(new Piece(500, 80, Color.ORANGE));
-        bricks.add(new Piece(550, 80, Color.ORANGE));
-        bricks.add(new Piece(0, 110, Color.YELLOW));
-        bricks.add(new Piece(50, 110, Color.YELLOW));
-        bricks.add(new Piece(100, 110, Color.YELLOW));
-        bricks.add(new Piece(150, 110, Color.YELLOW));
-        bricks.add(new Piece(200, 110, Color.YELLOW));
-        bricks.add(new Piece(250, 110, Color.YELLOW));
-        bricks.add(new Piece(300, 110, Color.YELLOW));
-        bricks.add(new Piece(350, 110, Color.YELLOW));
-        bricks.add(new Piece(400, 110, Color.YELLOW));
-        bricks.add(new Piece(450, 110, Color.YELLOW));
-        bricks.add(new Piece(500, 110, Color.YELLOW));
-        bricks.add(new Piece(550, 110, Color.YELLOW));
-        bricks.add(new Piece(0, 140, Color.GREEN));
-        bricks.add(new Piece(50, 140, Color.GREEN));
-        bricks.add(new Piece(100, 140, Color.GREEN));
-        bricks.add(new Piece(150, 140, Color.GREEN));
-        bricks.add(new Piece(200, 140, Color.GREEN));
-        bricks.add(new Piece(250, 140, Color.GREEN));
-        bricks.add(new Piece(300, 140, Color.GREEN));
-        bricks.add(new Piece(350, 140, Color.GREEN));
-        bricks.add(new Piece(400, 140, Color.GREEN));
-        bricks.add(new Piece(450, 140, Color.GREEN));
-        bricks.add(new Piece(500, 140, Color.GREEN));
-        bricks.add(new Piece(550, 140, Color.GREEN));
-        bricks.add(new Piece(0, 170, Color.BLUE));
-        bricks.add(new Piece(50, 170, Color.BLUE));
-        bricks.add(new Piece(100, 170, Color.BLUE));
-        bricks.add(new Piece(150, 170, Color.BLUE));
-        bricks.add(new Piece(200, 170, Color.BLUE));
-        bricks.add(new Piece(250, 170, Color.BLUE));
-        bricks.add(new Piece(300, 170, Color.BLUE));
-        bricks.add(new Piece(350, 170, Color.BLUE));
-        bricks.add(new Piece(400, 170, Color.BLUE));
-        bricks.add(new Piece(450, 170, Color.BLUE));
-        bricks.add(new Piece(500, 170, Color.BLUE));
-        bricks.add(new Piece(550, 170, Color.BLUE));
-        livesLeft = 3;
+        
+        for (int x = 0, y = 50; x <= 550; x += 50) {
+           bricks.add(new Piece(x, y, Color.RED));
+        }
+
+        for (int x = 0, y = 80; x <= 550; x += 50) {
+            bricks.add(new Piece(x, y, Color.ORANGE));
+        }
+
+        for (int x = 0, y = 110; x <= 550; x += 50) {
+            bricks.add(new Piece(x, y, Color.YELLOW));
+        }
+
+        for (int x = 0, y = 140; x <= 550; x += 50) {
+            bricks.add(new Piece(x, y, Color.GREEN));
+        }
+
+        for (int x = 0, y = 170; x <= 550; x += 50) {
+            bricks.add(new Piece(x, y, Color.BLUE));
+        }
+
+        livesLeft = lives;
         score = 0;
         this.frame = frame;
     }

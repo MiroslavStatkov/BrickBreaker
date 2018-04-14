@@ -8,36 +8,36 @@ public class Ball {
     public static final int BALL_DIAMETER = 10;
     private int xPos;
     private int yPos;
-    private boolean brickHit;
-    private boolean moveLeft;
-    private boolean moveRight;
-    private boolean moveUp;
-    private boolean moveDown;
+    private boolean isBrickHit;
+    private boolean isMoveLeft;
+    private boolean isMoveRight;
+    private boolean isMoveUp;
+    private boolean isMoveDown;
 
     public Ball(int x, int y) {
         xPos = x;
         yPos = y;
-        moveUp = true;
-        moveRight = true;
-        moveDown = false;
-        moveLeft = false;
-        brickHit = false;
+        isMoveUp = true;
+        isMoveRight = true;
+        isMoveDown = false;
+        isMoveLeft = false;
+        isBrickHit = false;
     }
 
     public Piece move(int paddleX, int paddleY, ArrayList<Piece> bricks) {
-        brickHit = false;
+        isBrickHit = false;
         Piece hitBrick = setMoveDirection(paddleX, paddleY, bricks);
 
-        if (moveLeft) {
+        if (isMoveLeft) {
             xPos -= 1;
 
-        } else if (moveRight) {
+        } else if (isMoveRight) {
             xPos += 1;
 
         }
-        if (moveUp) {
+        if (isMoveUp) {
             yPos -= 1;
-        } else if (moveDown) {
+        } else if (isMoveDown) {
             yPos += 1;
         }
 
@@ -50,7 +50,7 @@ public class Ball {
         checkHitPaddle(x, y);
         for (Piece brick : bricks) {
             checkBrickCollision(brick);
-            if (brickHit) {
+            if (isBrickHit) {
                 return brick;
             }
         }
@@ -65,20 +65,20 @@ public class Ball {
 
     private void checkTopWall() {
         if (yPos <= 0) {
-            switchUpandDown();
+            switchUpAndDown();
         }
     }
 
     private void checkLeftWall() {
         if (xPos <= 0) {
-            switchRightandLeft();
+            switchRightAndLeft();
         }
     }
 
     private void checkRightWall() {
 
         if (xPos + BALL_DIAMETER + 6 >= Board.BOARD_WIDTH) {
-            switchRightandLeft();
+            switchRightAndLeft();
         }
     }
 
@@ -91,7 +91,7 @@ public class Ball {
     private void checkTopPaddle(int x, int y) {
         if (yPos + BALL_DIAMETER == (y)) {
             if (xPos < (x + Paddle.PADDLE_LENGTH) && xPos > x) {
-                switchUpandDown();
+                switchUpAndDown();
             }
         }
     }
@@ -100,8 +100,8 @@ public class Ball {
 
         if (((leftSide(x) || rightSide(x)) && yPos + BALL_DIAMETER >= y && yPos
                 + BALL_DIAMETER <= (y + Paddle.PADDLE_HEIGHT))) {
-            switchUpandDown();
-            switchRightandLeft();
+            switchUpAndDown();
+            switchRightAndLeft();
         }
     }
 
@@ -124,8 +124,8 @@ public class Ball {
         int brickY = brick.getY();
         if ((xPos == (brick.getX() + Piece.BRICK_LENGTH))
                 && (yPos <= (brickY + Piece.BRICK_WIDTH)) && (yPos >= brickY)) {
-            switchRightandLeft();
-            brickHit = true;
+            switchRightAndLeft();
+            isBrickHit = true;
         }
     }
 
@@ -135,8 +135,8 @@ public class Ball {
         if ((xPos + BALL_DIAMETER >= brick.getX()) && xPos < brick.getX()
                 && (yPos + BALL_DIAMETER <= (brickY + Piece.BRICK_WIDTH))
                 && (yPos + BALL_DIAMETER >= brickY)) {
-            switchRightandLeft();
-            brickHit = true;
+            switchRightAndLeft();
+            isBrickHit = true;
         }
     }
 
@@ -144,15 +144,15 @@ public class Ball {
         int brickX = brick.getX();
         if ((brickTop(brick) || brickBottom(brick))
                 && (xPos <= brickX + Piece.BRICK_LENGTH)) {
-            if (moveLeft) {
+            if (isMoveLeft) {
                 if (xPos + BALL_DIAMETER >= brickX) {
-                    switchUpandDown();
-                    brickHit = true;
+                    switchUpAndDown();
+                    isBrickHit = true;
                 }
             } else {
                 if ((xPos >= brickX)) {
-                    switchUpandDown();
-                    brickHit = true;
+                    switchUpAndDown();
+                    isBrickHit = true;
                 }
             }
         }
@@ -170,24 +170,24 @@ public class Ball {
 
     }
 
-    private void switchRightandLeft() {
-        if (moveRight) {
-            moveRight = false;
-            moveLeft = true;
+    private void switchRightAndLeft() {
+        if (isMoveRight) {
+            isMoveRight = false;
+            isMoveLeft = true;
         } else {
-            moveRight = true;
-            moveLeft = false;
+            isMoveRight = true;
+            isMoveLeft = false;
         }
 
     }
 
-    private void switchUpandDown() {
-        if (moveUp) {
-            moveUp = false;
-            moveDown = true;
+    private void switchUpAndDown() {
+        if (isMoveUp) {
+            isMoveUp = false;
+            isMoveDown = true;
         } else {
-            moveUp = true;
-            moveDown = false;
+            isMoveUp = true;
+            isMoveDown = false;
         }
 
     }
