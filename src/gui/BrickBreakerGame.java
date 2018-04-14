@@ -29,8 +29,8 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
     private Music music;
     private Clip sound;
     private Runnable play;
-    private boolean left = false;
-    private boolean right = false;
+    private boolean isLeft = false;
+    private boolean isRight = false;
 
 
     public BrickBreakerGame() {
@@ -45,7 +45,7 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
         createComponents();
         setProperties();
         addComponents();
-        RunGame();
+        runGame();
     }
 
     private void createEvents() {
@@ -160,7 +160,7 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
         menuHelp.add(menuItemAbout);
     }
 
-    private void RunGame() {
+    private void runGame() {
         Runnable playSound = new Runnable() {
 
             public void run() {
@@ -196,11 +196,11 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
     }
 
     private void movePaddle() {
-        if (left) {
+        if (isLeft) {
             if (!isPaused) {
                 board.movePaddleLeft();
             }
-        } else if (right) {
+        } else if (isRight) {
             if (!isPaused) {
                 board.movePaddleRight();
             }
@@ -223,7 +223,7 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
         lives.setBackground(new java.awt.Color(65, 10, 65));
         lives.setForeground(Color.WHITE);
         lives.setFont(new Font(lives.getFont().getName(), Font.PLAIN, 24));
-        setLivesText(3);
+        setLivesText(Board.lives);
         scorePanel.add(lives, BorderLayout.WEST);
         score = new JLabel("Score: 0 ");
         score.setBackground(Color.BLACK);
@@ -242,8 +242,8 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         int c = e.getKeyCode();
-        left = (c == KeyEvent.VK_LEFT);
-        right = (c == KeyEvent.VK_RIGHT);
+        isLeft = (c == KeyEvent.VK_LEFT);
+        isRight = (c == KeyEvent.VK_RIGHT);
 
         if (c == KeyEvent.VK_P) {
             isPaused = true;
@@ -254,11 +254,11 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
 
     public void keyReleased(KeyEvent e) {
         int c = e.getKeyCode();
-        if (left && (c == KeyEvent.VK_LEFT)) {
-            left = false;
+        if (isLeft && (c == KeyEvent.VK_LEFT)) {
+            isLeft = false;
         }
-        if (right && (c == KeyEvent.VK_RIGHT)) {
-            right = false;
+        if (isRight && (c == KeyEvent.VK_RIGHT)) {
+            isRight = false;
         }
     }
 
@@ -269,7 +269,7 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
     public void restart() {
         board = new Board(this);
         add(board, BorderLayout.CENTER);
-        setLivesText(3);
+        setLivesText(Board.lives);
         setScoreText();
     }
 
@@ -277,8 +277,9 @@ public class BrickBreakerGame extends JFrame implements KeyListener {
         StringBuilder builder = new StringBuilder();
         builder.append("Lives: ");
         builder.append(numLives + " ");
+        char livesSymbol = '\u25CF';
         for (int i = 1; i <= numLives; i++) {
-            builder.append("\u25CF ");
+            builder.append(livesSymbol);
         }
         lives.setText(builder.toString());
     }
